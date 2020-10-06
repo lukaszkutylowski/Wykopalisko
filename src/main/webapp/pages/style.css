@@ -1,0 +1,97 @@
+html {
+	min-width: 500px;
+}
+.container {
+	background-color: #34495E;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.navbar-brand {
+	background-color: #34495E;
+	width: 490px;
+	padding: 5px;
+}
+.brand {
+	color: lightgray;
+	font-size: 40px;
+	font-weight: bold;
+	margin-left: auto;
+	margin-right: auto;
+	width: 240px;
+}
+.navbar-main-button {
+	width: 156px;
+	height: 25px;
+	font-size: 15px;
+}
+.navbar-button {
+	padding: 5px;
+	float: left;
+}
+.end {
+	clear: both;
+}
+.space {
+	width: 500px;
+	height: 20px;
+	background-color: white;
+}
+.up-vote {
+	width: 250px;
+	height: 40px;
+	background-color: green;
+	text-align: center;
+	font-size: 30px;
+	float: left;
+}
+.down-vote {
+	width: 250px;
+	height: 40px;
+	background-color: red;
+	text-align: center;
+	font-size: 30px;
+	float: left;
+}
+.title {
+	width: 500px;
+	font-size: 30px;
+	background-color: lightgray;
+	text-align: center;
+	font-weight: bold;
+}
+.description {
+	width: 500px;
+	font-size: 17px;
+	background-color: lightgray;
+}
+.link {
+	width: 500px;
+	font-size: 20px;
+	background-color: lightgray;
+	text-align: center;
+	font-weight: bold;
+}
+.form-control {
+	height: 25px;
+	width: 200px;
+}
+.apply-button {
+	height: 31px;
+}
+.link-register {
+	color: red;
+	font-size: 25px;
+}
+.login-info {
+	color: red;
+	padding: 10px;
+}
+.footer {
+	background-color: #34495E;
+	width: 500px;
+	height: 25px;
+	text-align: center;
+	font-size: 20px;
+	color: lightgray;
+}
