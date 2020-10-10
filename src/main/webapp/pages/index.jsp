@@ -52,21 +52,38 @@
 				<div class="wykopalisko">
 					<div class="space"></div>
 					<!--  funkcjonalność głosowania -->
-					<form action="/vote-up" method="post">
-						<input type="hidden" name="discovery_id" value="${discovery.discovery_id}"/>
-						<button type="submit" class="up-vote">${discovery.vote_up}</button>
-					</form>
-					<form action="/vote-down" method="post">
-						<input type="hidden" name="discovery_id" value="${discovery.discovery_id}"/>
-						<button type="submit" class="down-vote" >${discovery.vote_down}</button>
-					</form>
+					
+					<c:choose>
+						<c:when test="${not empty username}">
+							<form action="/vote-up" method="post">
+								<input type="hidden" name="discovery_id" value="${discovery.discovery_id}"/>
+								<button type="submit" class="up-vote">${discovery.vote_up}</button>
+							</form>
+						</c:when>
+						<c:otherwise>
+							<a href="login"><button type="submit" class="up-vote">${discovery.vote_up}</button></a>
+						</c:otherwise>
+					</c:choose>
+					
+					<c:choose>
+						<c:when test="${not empty username}">
+							<form action="/vote-down" method="post">
+								<input type="hidden" name="discovery_id" value="${discovery.discovery_id}"/>
+								<button type="submit" class="down-vote" >${discovery.vote_down}</button>
+							</form>
+						</c:when>
+						<c:otherwise>
+							<a href="login"><button type="submit" class="down-vote">${discovery.vote_down}</button></a>
+						</c:otherwise>
+					</c:choose>
+					
 					<div class="end"></div>
-					<!-- -->
+					<!-- koniec funkcjonalności -->
 					<div class="title"><c:out value="${discovery.name}" /></div>
 					<div class="description">
 			   			<c:out value="${discovery.description}" />
 			 		</div>
-					<div class="link"><a href="<c:out value="${discovery.url}" />" target="_blank">Przejdź do wykopaliska</a></div>
+					<div class="link"><a href="<c:out value="${discovery.url}" />" target="_blank">${discovery.url}</a></div>
 					<div class="space"></div>
 				</div>
 			</c:forEach>
