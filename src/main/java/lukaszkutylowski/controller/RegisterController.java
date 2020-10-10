@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import lukaszkutylowski.model.User;
 import lukaszkutylowski.service.UserService;
 
 @Controller
@@ -15,7 +16,15 @@ public class RegisterController {
 			@RequestParam("password") String password) {
 		
 		UserService userService = new UserService();
-		userService.addUser(username, password);
-		return "index.jsp";
+		User userCheck = (User) userService.getUserByUsername(username);
+		
+		if (userCheck == null) {
+			userService.addUser(username, password);
+			return "index.jsp";
+		} else {
+			return "registerFail.jsp";
+		}
+		
+		
 	}
 }
