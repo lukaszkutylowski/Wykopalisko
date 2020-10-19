@@ -16,15 +16,16 @@ public class RegisterController {
 			@RequestParam("password") String password) {
 		
 		UserService userService = new UserService();
-		User userCheck = (User) userService.getUserByUsername(username);
+		User checkUserIsNull;
 		
-		if (userCheck == null) {
+		try {
+			checkUserIsNull = (User) userService.getUserByUsername(username);
+			checkUserIsNull.toString();
+			return "registerFail.jsp";
+		} catch (NullPointerException e) {
 			userService.addUser(username, password);
 			return "index.jsp";
-		} else {
-			return "registerFail.jsp";
 		}
-		
 		
 	}
 }

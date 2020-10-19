@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -86,8 +87,12 @@ public class UserDAOImpl implements UserDAO {
 	public User getUserByUsername(String username) {
 		User resultUser = null;
 		SqlParameterSource paramSource = new MapSqlParameterSource("username", username);
-		resultUser = template.queryForObject(READ_USER_BY_USERNAME, paramSource, new UserRowMapper());
-		return resultUser;
+		try {
+			resultUser = template.queryForObject(READ_USER_BY_USERNAME, paramSource, new UserRowMapper());
+			return resultUser;
+		} catch (DataAccessException e) {
+			return null;
+		}
 	}
 	
 	private class UserRowMapper implements RowMapper<User> {
