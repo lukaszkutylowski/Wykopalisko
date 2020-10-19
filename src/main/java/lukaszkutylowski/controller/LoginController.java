@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import lukaszkutylowski.model.User;
-import lukaszkutylowski.service.UserService;
+import lukaszkutylowski.controller.service.LoginControllerService;
 
 @Controller
 @SessionAttributes("username")
@@ -19,7 +18,9 @@ public class LoginController {
 			@RequestParam("password") String password,
 			ModelAndView mv) {
 		
-		if (!validateUser(username, password)) {
+		LoginControllerService loginService = new LoginControllerService();
+		
+		if (!loginService.validateUser(username, password)) {
 			mv.setViewName("login.jsp");
 			return mv;
 		}
@@ -30,14 +31,5 @@ public class LoginController {
 		return mv;
 	}
 	
-	private boolean validateUser(String username, String password) {
-		UserService service = new UserService();
-		User user = service.getUserByUsername(username);
-		if (user.getUsername() != null) {
-			if (user.getPassword().equals(password)) {
-				return true;
-			}
-		}
-		return false;
-	}
+	
 }

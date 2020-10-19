@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 
-import lukaszkutylowski.model.User;
-import lukaszkutylowski.service.DiscoveryService;
-import lukaszkutylowski.service.UserService;
+import lukaszkutylowski.controller.service.DiscoveryAddControllerService;
 
 @Controller
 public class DiscoveryAddController {
@@ -19,17 +17,10 @@ public class DiscoveryAddController {
 			@RequestParam("inputUrl") String url,
 			WebRequest request) {
 		
-		UserService userService = new UserService();
-		DiscoveryService discoveryService = new DiscoveryService();
+		DiscoveryAddControllerService controllerService = new DiscoveryAddControllerService();
 		
 		String username = request.getAttribute("username", request.SCOPE_SESSION).toString();
-		User authenticatedUser = (User) userService.getUserByUsername(username);
-		
-		url = "https://" + url;
-		
-		if (!username.equals(null)) {
-			discoveryService.addDiscovery(name, description, url, authenticatedUser);
-		}
+		controllerService.proceedAddDiscovery(username, name, description, url);
 		
 		return "index.jsp";
 	}
