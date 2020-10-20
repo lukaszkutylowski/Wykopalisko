@@ -9,7 +9,6 @@ This is a web application which contains functionalities like: registration user
 * OOP
 * JSP
 * JSTL
-* XML
 * HTML
 * CSS
 * DAO Factory
