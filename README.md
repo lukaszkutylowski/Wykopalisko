@@ -55,3 +55,24 @@ Moveover this class contains getters, setters, toString, hashCode and equals met
 Moveover this class contains getters, setters, toString, hashCode and equals methods.
 
 ![alt text](/.readmeimages/image6.jpg)
+
+### DaoFactory.java
+
+*DaoFactory* is an abstract class which is extended by another way to connection with another databases. In this application we have one databas, so exists one implementation of DAOFactory.
+This class contains three abstract methods and *getDAOFactory* which create *MysqlDaoFactory* instance.
+
+![alt text](/.readmeimages/image8.jpg)
+
+### MysqlDaoFactory.java
+
+*MysqlDaoFactory* class extends DAOFactory abstract class and implements (override) abstract methods.
+
+![alt text](/.readmeimages/image7.jpg)
+
+### GenericDAO.java
+
+*GenericDAO* interface contains CRUD abstract methods (create, read, update, delete).
+This interface accept object T and PK which is Serializable - primary key.
+
+![alt text](/.readmeimages/image9.jpg)
+
