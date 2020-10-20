@@ -76,3 +76,25 @@ This interface accept object T and PK which is Serializable - primary key.
 
 ![alt text](/.readmeimages/image9.jpg)
 
+### UserDAO.java
+
+*UserDAO* interface extends GenericDAO interface.
+This class contains two additional methods: getAll() and getUserByUsername().
+
+![alt text](/.readmeimages/image10.jpg)
+
+### DiscoveryDAO.java
+
+*DiscoveryDAO* interface extends GenericDAO interface.
+This class contains one additional method: getAll().
+
+![alt text](/.readmeimages/image11.jpg)
+
+### VoteDAO.java
+
+*VoteDAO* interface extends GenericDAO interface.
+This class contains one additional method: getVoteByUserIdDiscoveryId().
+
+![alt text](/.readmeimages/image12.jpg)
+
+### (...)
