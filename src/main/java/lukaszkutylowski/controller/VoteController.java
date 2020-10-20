@@ -1,5 +1,6 @@
 package lukaszkutylowski.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,7 +12,12 @@ import lukaszkutylowski.controller.service.VoteControllerService;
 @Controller
 public class VoteController {
 
-	VoteControllerService voteService = new VoteControllerService();
+	VoteControllerService voteService;
+	
+	@Autowired
+	public VoteController(VoteControllerService voteService) {
+		this.voteService = voteService;
+	}
 	
 	@RequestMapping(value = "/vote-up", method = RequestMethod.POST)
 	public String voteUp(@RequestParam("discovery_id") long discovery_id,

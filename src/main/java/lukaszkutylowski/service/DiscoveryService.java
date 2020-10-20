@@ -3,11 +3,14 @@ package lukaszkutylowski.service;
 import java.util.Comparator;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import lukaszkutylowski.dao.DAOFactory;
 import lukaszkutylowski.dao.DiscoveryDAO;
 import lukaszkutylowski.model.Discovery;
 import lukaszkutylowski.model.User;
 
+@Service
 public class DiscoveryService {
 
 	public void addDiscovery(String name, String desc, String url, User user) {

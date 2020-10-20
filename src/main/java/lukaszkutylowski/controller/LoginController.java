@@ -13,12 +13,16 @@ import lukaszkutylowski.controller.service.LoginControllerService;
 @SessionAttributes("username")
 public class LoginController {
 
+	LoginControllerService loginService;
+	
+	public LoginController(LoginControllerService loginService) {
+		this.loginService = loginService;
+	}
+	
 	@RequestMapping(value = "login-form", method = RequestMethod.POST)
 	public ModelAndView login(@RequestParam("username") String username,
 			@RequestParam("password") String password,
 			ModelAndView mv) {
-		
-		LoginControllerService loginService = new LoginControllerService();
 		
 		if (!loginService.validateUser(username, password)) {
 			mv.setViewName("login.jsp");

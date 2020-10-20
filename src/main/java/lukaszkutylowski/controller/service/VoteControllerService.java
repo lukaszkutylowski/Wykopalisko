@@ -1,12 +1,22 @@
 package lukaszkutylowski.controller.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.WebRequest;
 
 import lukaszkutylowski.model.Discovery;
 import lukaszkutylowski.service.DiscoveryService;
 
+@Service
 public class VoteControllerService {
 
+	DiscoveryService discoveryService;
+	
+	@Autowired
+	public VoteControllerService (DiscoveryService discoveryService) {
+		this.discoveryService = discoveryService;
+	}
+	
 	public void voteProceed(WebRequest request,
 			String voteType,
 			long discovery_id) {
@@ -19,7 +29,7 @@ public class VoteControllerService {
 	}
 	
 	private void updateDiscovery(long discovery_id, String voteType) {
-		DiscoveryService discoveryService = new DiscoveryService();
+		
 		Discovery discoveryById = discoveryService.getDiscoveryById(discovery_id);
 		Discovery updatedDiscovery = null;
 		if (voteType.equals("VOTE_UP")) {

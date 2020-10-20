@@ -3,15 +3,25 @@ package lukaszkutylowski.controller.service;
 import java.util.Comparator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import lukaszkutylowski.model.Discovery;
 import lukaszkutylowski.service.DiscoveryService;
 
+@Service
 public class HomeControllerService {
 
+	DiscoveryService discoveryService;
+	
+	@Autowired
+	public HomeControllerService (DiscoveryService discoveryService) {
+		this.discoveryService = discoveryService;
+	}
+	
 	public List<Discovery> proceedGetAllDiscoveries () {
-		DiscoveryService service = new DiscoveryService();
 		List<Discovery> allDiscoveries =
-				service.getAllDiscoveries(new Comparator<Discovery>() {
+				discoveryService.getAllDiscoveries(new Comparator<Discovery>() {
 
 					@Override
 					public int compare(Discovery d1, Discovery d2) {

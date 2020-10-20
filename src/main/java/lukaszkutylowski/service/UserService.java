@@ -1,9 +1,12 @@
 package lukaszkutylowski.service;
 
+import org.springframework.stereotype.Service;
+
 import lukaszkutylowski.dao.DAOFactory;
 import lukaszkutylowski.dao.UserDAO;
 import lukaszkutylowski.model.User;
 
+@Service
 public class UserService {
 
 	public void addUser(String username, String password) {

@@ -1,9 +1,12 @@
 package lukaszkutylowski.service;
 
+import org.springframework.stereotype.Service;
+
 import lukaszkutylowski.dao.DAOFactory;
 import lukaszkutylowski.dao.VoteDAO;
 import lukaszkutylowski.model.Vote;
 
+@Service
 public class VoteService {
 
 	public Vote addVote(long discovery_id, long user_id, String voteType) {

@@ -2,6 +2,7 @@ package lukaszkutylowski.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,9 +13,15 @@ import lukaszkutylowski.model.Discovery;
 @Controller
 public class HomeController {
 
+	HomeControllerService homeService;
+	
+	@Autowired
+	public HomeController(HomeControllerService homeService) {
+		this.homeService = homeService;
+	}
+	
 	@RequestMapping(value = "/")
 	public ModelAndView home(ModelAndView mv) {
-		HomeControllerService homeService = new HomeControllerService();
 		List<Discovery> allDiscoveries = homeService.proceedGetAllDiscoveries();
 		mv.addObject("discoveries", allDiscoveries);
 		mv.setViewName("index.jsp");
