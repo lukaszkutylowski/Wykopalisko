@@ -1,80 +1,110 @@
-html {
-	min-width: 500px;
+body {
+	background-color: gray;
 }
 .container {
-	background-color: #34495E;
-	width: 500px;
+	background-color: graygray;
+	width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
 }
 .navbar-brand {
-	background-color: #34495E;
-	width: 490px;
+	background-color: gray;
+	width: 990px;
 	padding: 5px;
 }
 .brand {
-	color: lightgray;
+	color: white;
 	font-size: 40px;
 	font-weight: bold;
 	margin-left: auto;
 	margin-right: auto;
 	width: 240px;
 }
-.navbar-main-button {
-	width: 156px;
-	height: 25px;
-	font-size: 15px;
-}
 .navbar-button {
+	background-color: #303030;
+	width: 321px;
+	height: 25px;
+	font-size: 18px;
 	padding: 5px;
 	float: left;
+	border-right: 2px dotted #444444;
+	text-align: center;
+}
+.navbar-button:hover {
+	background-color: #000000;
+	cursor: pointer;
+}
+a:link {
+	color: white;
+	text-decoration: none;
+	text-align: center;
+}
+a:visited {
+	color: white;
+}
+a:hover {
+	color: FFFFFF;
 }
 .end {
 	clear: both;
 }
 .space {
-	width: 500px;
+	width: 1000px;
 	height: 20px;
-	background-color: white;
+	background-color: gray;
 }
 .up-vote {
-	width: 250px;
-	height: 40px;
-	background-color: green;
+	width: 500px;
+	height: 24px;
+	color: green;
 	text-align: center;
-	font-size: 30px;
+	font-size: 18px;
 	float: left;
+	background-color: #303030;
 }
 .down-vote {
-	width: 250px;
-	height: 40px;
-	background-color: red;
+	width: 500px;
+	height: 24px;
+	color: red;
 	text-align: center;
-	font-size: 30px;
+	font-size: 18px;
 	float: left;
+	background-color: #303030;
 }
 .title {
-	width: 500px;
-	font-size: 30px;
+	width: 1000px;
+	font-size: 18px;
 	background-color: lightgray;
 	text-align: center;
 	font-weight: bold;
 }
 .description {
-	width: 500px;
-	font-size: 17px;
-	background-color: lightgray;
+	width: 1000px;
+	font-size: 18px;
+	background-color: gray;
+	text-align: center;
+	color: white;
 }
 .link {
-	width: 500px;
-	font-size: 20px;
-	background-color: lightgray;
+	width: 990px;
+	font-size: 18px;
+	background-color: #303030;
 	text-align: center;
 	font-weight: bold;
+	padding: 5px;
+}
+.link:hover {
+	width: 990px;
+	font-size: 18px;
+	background-color: black;
+	text-align: center;
+	font-weight: bold;
+	padding: 5px;
 }
 .form-control {
 	height: 25px;
 	width: 200px;
+	padding: 10px;
 }
 .apply-button {
 	height: 31px;
@@ -84,12 +114,15 @@ html {
 	font-size: 25px;
 }
 .login-info {
+	background-color: black;
 	color: red;
 	padding: 10px;
+	text-align: center;
 }
 .footer {
-	background-color: #34495E;
-	width: 500px;
+	background-color: black;
+	color: white;
+	width: 1000px;
 	height: 25px;
 	text-align: center;
 	font-size: 20px;

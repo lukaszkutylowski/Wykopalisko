@@ -15,25 +15,25 @@
 		</div>
 		<div class="login-info">Użytkownik od podanej nazwie istnieje. Użyj innej nazwy.</div>
 		<div class="navbar-button">
-			<a href="/"><button class="navbar-main-button">Główna</button></a>
+			<a href="/">Główna</a>
 		</div>
 		<div class="navbar-button">
 			<c:choose>
 				<c:when test="${not empty username}">
-					<a href="add"><button class="navbar-main-button">Dodaj</button></a>
+					<a href="add">Dodaj</a>
 				</c:when>
 				<c:otherwise>
-					<a href="login"><button class="navbar-main-button">Zaloguj, by dodać</button></a>
+					<a href="login">Zaloguj, by dodać</a>
 				</c:otherwise>
 			</c:choose>
 		</div>
 		<div class="navbar-button">
 			<c:choose>
 				<c:when test="${not empty username}">
-					<a href="logout"><button class="navbar-main-button">Wyloguj się</button></a>
+					<a href="logout">Wyloguj się</a>
 				</c:when>
 				<c:otherwise>
-					<a href="login"><button class="navbar-main-button">Zaloguj się</button></a>
+					<a href="login">Zaloguj się</a>
 				</c:otherwise>
 			</c:choose>
 		</div>

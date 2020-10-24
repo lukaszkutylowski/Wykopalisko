@@ -23,25 +23,25 @@
 				</c:otherwise>
 			</c:choose>
 		<div class="navbar-button">
-			<a href="/"><button class="navbar-main-button">Główna</button></a>
+			<a href="/">Główna</a>
 		</div>
 		<div class="navbar-button">
 			<c:choose>
 				<c:when test="${not empty username}">
-					<a href="add"><button class="navbar-main-button">Dodaj</button></a>
+					<a href="add">Dodaj</a>
 				</c:when>
 				<c:otherwise>
-					<a href="login"><button class="navbar-main-button">Zaloguj, by dodać</button></a>
+					<a href="login">Zaloguj, by dodać</a>
 				</c:otherwise>
 			</c:choose>
 		</div>
 		<div class="navbar-button">
 			<c:choose>
 				<c:when test="${not empty username}">
-					<a href="logout"><button class="navbar-main-button">Wyloguj się</button></a>
+					<a href="logout">Wyloguj się</a>
 				</c:when>
 				<c:otherwise>
-					<a href="login"><button class="navbar-main-button">Zaloguj się</button></a>
+					<a href="login">Zaloguj się</a>
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -57,11 +57,11 @@
 						<c:when test="${not empty username}">
 							<form action="/vote-up" method="post">
 								<input type="hidden" name="discovery_id" value="${discovery.discovery_id}"/>
-								<button type="submit" class="up-vote">${discovery.vote_up}</button>
+								<button type="submit" class="up-vote">Mocne: ${discovery.vote_up}</button>
 							</form>
 						</c:when>
 						<c:otherwise>
-							<a href="login"><button type="submit" class="up-vote">${discovery.vote_up}</button></a>
+							<a href="login"><button type="submit" class="up-vote">Mocne: ${discovery.vote_up}</button></a>
 						</c:otherwise>
 					</c:choose>
 					
@@ -69,11 +69,11 @@
 						<c:when test="${not empty username}">
 							<form action="/vote-down" method="post">
 								<input type="hidden" name="discovery_id" value="${discovery.discovery_id}"/>
-								<button type="submit" class="down-vote" >${discovery.vote_down}</button>
+								<button type="submit" class="down-vote" >Słabe: ${discovery.vote_down}</button>
 							</form>
 						</c:when>
 						<c:otherwise>
-							<a href="login"><button type="submit" class="down-vote">${discovery.vote_down}</button></a>
+							<a href="login"><button type="submit" class="down-vote">Słabe: ${discovery.vote_down}</button></a>
 						</c:otherwise>
 					</c:choose>
 					
