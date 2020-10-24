@@ -28,6 +28,9 @@ public class UserDAOImpl implements UserDAO {
 		"SELECT user_id, username, password, is_admin FROM user"
 		+ " WHERE username = :username;";
 
+	private static final String ADMIN_LOGIN = "admin";
+	private static final String ADMIN_PASSWORD = "_Pg<fCJZk#Za7jQ)QnZh";
+	
 	private NamedParameterJdbcTemplate template;
 	
 	public UserDAOImpl() {
@@ -48,8 +51,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	private void setPriviliges(User resultUser) {
-		if	(	resultUser.getUsername().equals("admin") && 
-				resultUser.getPassword().equals("_Pg<fCJZk#Za7jQ)QnZh")
+		if	(	resultUser.getUsername().equals(ADMIN_LOGIN) && 
+				resultUser.getPassword().equals(ADMIN_PASSWORD)
 			) {
 			resultUser.setIs_admin(true);
 		} else {
