@@ -48,4 +48,11 @@ public class VoteService {
 		Vote vote = voteDao.getVoteByUserIdDiscoveryId(user_id, discovery_id);
 		return vote;
 	}
+	
+	public int countVoteByIdAndVoteType(long discovery_id, String voteType) {
+		DAOFactory factory = DAOFactory.getDAOFactory();
+		VoteDAO voteDao = factory.getVoteDAO();
+		int voteCount = voteDao.countVoteByIdAndVoteType(discovery_id, voteType);
+		return voteCount;
+	}
 }

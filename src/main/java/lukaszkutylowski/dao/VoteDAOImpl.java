@@ -30,11 +30,38 @@ public class VoteDAOImpl implements VoteDAO {
 		+ "FROM vote WHERE user_id = :user_id AND discovery_id = :discovery_id;";
 	private static final String UPDATE_VOTE = 
 		"UPDATE vote SET type = :type, WHERE vote_id = :vote_id;";
+	private static final String READ_VOTE_BY_DISCOVERY_ID_TYPE = 
+		"SELECT vote_id, discovery_id, user_id, type "
+		+ "FROM vote WHERE discovery_id = :discovery_id AND type = :type;";
+	private static final String FOUND_ROWS = 
+		"SELECT FOUND_ROWS();";
 	
 	private NamedParameterJdbcTemplate template;
 	
 	public VoteDAOImpl() {
 		template = new NamedParameterJdbcTemplate(ConnectionProvider.getDataSource());
+	}
+	
+	public int countVoteByIdAndVoteType(long discovery_id, String voteType) {
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("type", voteType);
+		paramMap.put("discovery_id", discovery_id);
+		SqlParameterSource paramSource = new MapSqlParameterSource(paramMap);
+		int voteCount = 0;
+		List<Map<String, Object>> votes;
+		try {
+			votes = template.queryForList(READ_VOTE_BY_DISCOVERY_ID_TYPE, paramSource);
+			//votes = template.queryForList(READ_VOTE_BY_DISCOVERY_ID_TYPE, new VoteRowMapper());
+			//List<Vote> votes = template.query(FOUND_ROWS, new VoteRowMapper());
+			for (Map<String, Object> v : votes) {
+				voteCount++;
+			}
+		} catch (EmptyResultDataAccessException e) {
+			//vote not found
+		}
+		
+		System.out.println("VOTE COUNT = " + voteCount);
+		return voteCount;
 	}
 	
 	@Override
